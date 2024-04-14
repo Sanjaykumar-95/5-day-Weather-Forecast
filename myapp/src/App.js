@@ -10,8 +10,6 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Citiestable />} />
-        {/* <Route path="/Forecast/" element={<Forecast />} /> */}
-        {/* <Route path="/Forecast/:cityName" render={(props) => <Forecast cityName={props.match.params.cityName} />} /> */}
         <Route path="/forecast/:cityname" element={<Forecast />} />
       </Routes>
 

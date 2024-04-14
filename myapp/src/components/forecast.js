@@ -1,16 +1,18 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import clear from '../Assets/clear.png';
 import cloud from '../Assets/cloud.png';
 import rain from '../Assets/rain.png';
 import snow from '../Assets/snow.png';
 import drizzle from '../Assets/drizzle.png';
 import humidity from '../Assets/humidity.png';
+import { BsArrowLeftCircleFill } from "react-icons/bs";
 
 function Forecast() {
     let { cityname } = useParams();
     cityname = cityname.slice(1);
     const [records,setRecords]=useState([]);
+    const navigate=useNavigate();
     let ar=[];
 
     useEffect(()=>{
@@ -49,8 +51,11 @@ function Forecast() {
     return (
         <div>
             <div className="container">
-                <div className="row" s style={{ textAlign: 'center' }}>
-                    <div className="col-md-12">
+                <div className="row" style={{marginTop:'10px'}}>
+                    <div className="col-md-2">
+                        <button className="btn btn-primary back_btn" onClick={()=>{navigate('/')}}><BsArrowLeftCircleFill /> Back</button>
+                    </div>
+                    <div className="col-md-10" style={{ textAlign: 'center' }}>
                         <h3>Weather Forecast of {cityname}</h3>
                     </div>
                 </div><br></br>
