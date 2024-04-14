@@ -31,8 +31,7 @@ function Citiestable() {
     const columns = [
         {
             name: 'City',
-            // selector: row => row.name,
-            selector: row => <Link to={`/Forecast/${row.name}`}>{row.name}</Link>,
+            selector: row => <Link to={`/forecast/:${row.name}`}>{row.name}</Link>,
             sortable: true
         },
         {
@@ -70,7 +69,9 @@ function Citiestable() {
                         <h2>Weather Forecast</h2>
                     </div>
                 </div>
-                <div className='row'>
+            </div>
+            <div className='container' style={{backgroundColor:'#f6f6f8', borderRadius:'25px', padding:'20px'}}>
+                <div className='row' style={{marginBottom:'10px'}}>
                     <div className='col-md-9'></div>
                     <div className='col-md-3'>
                         <input type='text' placeholder='Enter City / Country code' className='form-control' onChange={handelfilter} />
@@ -80,7 +81,6 @@ function Citiestable() {
                     <div className='col-md-12 table'>
                         <DataTable columns={columns}
                             data={filteredData.length > 0 ? filteredData : pdata}
-                            // onRowClicked={(row) => window.open(`${row.name}`, `_blank`)}
                         >
                         </DataTable>
                     </div>
